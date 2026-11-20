@@ -1,0 +1,31 @@
+CARA PASANG (Laravel 11/12/13)
+
+1. Ekstrak zip ini. Isinya langsung folder: app, database, public, resources, routes.
+2. Salin SEMUA isinya ke folder proyek Laravel Anda (mis. C:\laragon\www\katalog-resepmakanan).
+   Saat Windows bertanya, pilih "Replace the files in the destination".
+   Jangan ganti nama file dan jangan buka lalu tempel manual.
+3. Buka terminal di folder proyek, jalankan satu per satu:
+
+   composer dump-autoload
+   php artisan migrate
+   php artisan db:seed --class=RecipeSeeder
+   php artisan storage:link
+   php artisan optimize:clear
+   php artisan serve
+
+4. Buka: http://127.0.0.1:8000/resepmakanan
+
+LOGIN ADMIN (untuk /admin), opsional, lakukan SETELAH langkah 1-3:
+
+   composer require laravel/breeze --dev
+   php artisan breeze:install blade
+
+   Breeze akan menimpa resources/views/layouts/app.blade.php.
+   Setelah Breeze selesai, salin ulang folder dari zip ini sekali lagi
+   (Replace) supaya tampilan Katalog Resep kembali.
+   Lalu daftar akun di /register dan buka /admin.
+
+Alamat:
+   /resepmakanan              daftar resep
+   /admin                     dashboard (perlu login)
+   /admin/recipes/create      tambah resep
